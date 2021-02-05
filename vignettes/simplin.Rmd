@@ -27,20 +27,20 @@ Here are an example on how to fit simple linear regression models using this pac
 
 Consider simple linear regression model 
 $$Y_i=\beta_0+\beta_1X_i+\epsilon_i\quad i=1,2,\dots,n$$ 
-Suppose we observe $X_1,X_2,\dots,x_n$ and $y_1,y_2,\dots,X_n$, and want to estimate $\beta_0$ and $\beta_1$.
+Suppose we observe $X_1,X_2,\dots,X_n$ and $Y_1,Y_2,\dots,Y_n$, and want to estimate $\beta_0$ and $\beta_1$.
 
 ## Input and Output
 
-To fit a simple linear regression model, run
+To fit a simple linear regression model, use function `simp_lin_R`
 ```{r}
 x <- 1:10
 y <- 2+1.5*x+rnorm(10)
 fit1 <- simp_lin_R(x,y)
 ```
-where 'x' and 'y' should be numeric vectors.
+where `x` and `y` should be numeric vectors.
 
-The output is a list containing coefficients ('coef'), predictions ('pred') and residuals ('res').
+The output is a list containing coefficients (`coef`), predictions (`pred`) and residuals (`res`).
 ```{r}
 fit1
 ```
-where 'coef' is a matrix containing the esitmated values, standard errors and 95% confidence interval for $\beta_0$ and $\beta_1$.
+where `coef` is a matrix containing the estimated values, standard errors and 95% confidence intervals for $\hat{\beta_0}$ and $\hat{\beta_1}$.
