@@ -27,23 +27,11 @@ List simp_lin_cpp(NumericVector x, NumericVector y, int n){
   NumericVector res = y - pred;
   NumericVector ss = pow(res,2);
   double mse = sum(ss)/(n-2);
-  double se0 = sqrt(mse*(0.01 + pow(x_bar,2)/dn));
+  double se0 = sqrt(mse*(pow(x_bar,2)/dn  + 0.01));
   double se1 = sqrt(mse/dn);
   NumericVector b0 = NumericVector::create(beta0,se0,beta0-1.96*se0,beta0+1.96*se0);
   NumericVector b1 = NumericVector::create(beta1,se1,beta1-1.96*se1,beta1+1.96*se1);
-  //b0[0] = beta0;
-  //b0[1] = se0;
-  //b0[2] = beta0-1.96*se0;
-  //b0[3] = beta0+1.96*se0;
-  //b1[0] = beta1;
-  //b1[1] = se1;
-  //b1[2] = beta1-1.96*se1;
-  //b1[3] = beta1+1.96*se1;
   List out = List::create(b0, b1, pred, res);
-  //out[0] = b0;
-  //out[1] = b1;
-  //out[2] = pred;
-  //out[3] = res;
   return out;
 }
 
