@@ -27,8 +27,8 @@ List simp_lin_cpp(NumericVector x, NumericVector y, int n){
   NumericVector res = y - pred;
   NumericVector ss = pow(res,2);
   double mse = sum(ss)/(n-2);
-  double se0 = mse*(1/n + pow(x_bar,2)/dn);
-  double se1 = mse/dn;
+  double se0 = sqrt(mse*(1/n + pow(x_bar,2)/dn));
+  double se1 = sqrt(mse/dn);
   NumericVector b0 = NumericVector::create(beta0,se0,beta0-1.96*se0,beta0+1.96*se0);
   NumericVector b1 = NumericVector::create(beta1,se1,beta1-1.96*se1,beta0+1.96*se0);
   //b0[0] = beta0;
