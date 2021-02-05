@@ -1,0 +1,14 @@
+Package: simplin
+Type: Package
+Title: Fitting Simple Linear Regression Models
+Version: 0.1.0
+Author: Hanxiao Jing
+Maintainer: Hanxiao Jing <hanxiao.jing@colostate.edu>
+Description: Fits simple linear regression models. 
+License: MIT + file LICENSE
+Imports: Rcpp (>= 1.0.6), RcppArmadillo (>= 0.10.1.2.2)
+LinkingTo: Rcpp, RcppArmadillo
+VignetteBuilder: knitr
+Suggests: 
+    knitr,
+    rmarkdown

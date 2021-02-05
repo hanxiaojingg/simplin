@@ -1,0 +1,46 @@
+---
+title: "simplin"
+output: rmarkdown::html_vignette
+author: "Hanxiao Jing"
+vignette: >
+  %\VignetteIndexEntry{simplin}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(simplin)
+```
+
+## Introduction
+
+Here are an example on how to fit simple linear regression models using this package.
+
+## Model
+
+Consider simple linear regression model 
+$$Y_i=\beta_0+\beta_1X_i+\epsilon_i\quad i=1,2,\dots,n$$ 
+Suppose we observe $X_1,X_2,\dots,x_n$ and $y_1,y_2,\dots,X_n$, and want to estimate $\beta_0$ and $\beta_1$.
+
+## Input and Output
+
+To fit a simple linear regression model, run
+```{r}
+x <- 1:10
+y <- 2+1.5*x+rnorm(10)
+fit1 <- simp_lin_R(x,y)
+```
+where 'x' and 'y' should be numeric vectors.
+
+The output is a list containing coefficients ('coef'), predictions ('pred') and residuals ('res').
+```{r}
+fit1
+```
+where 'coef' is a matrix containing the esitmated values, standard errors and 95% confidence interval for $\beta_0$ and $\beta_1$.
